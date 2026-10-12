@@ -30,12 +30,12 @@ services:
           property: password
       - key: REDIS_HOST
         fromService:
-          type: redis
+          type: keyvalue
           name: ehr-redis
           property: host
       - key: REDIS_PORT
         fromService:
-          type: redis
+          type: keyvalue
           name: ehr-redis
           property: port
       - key: JWT_SECRET
@@ -44,10 +44,13 @@ services:
         sync: false
       - key: FRONTEND_URL
         sync: false
-  - type: redis
+  - type: keyvalue
     name: ehr-redis
     plan: free
     maxmemoryPolicy: allkeys-lru
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
 
 databases:
   - name: ehr-postgres
