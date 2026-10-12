@@ -1,0 +1,22 @@
+# Maven build output
+target/
+*.class
+*.jar
+*.war
+
+# logs
+*.log
+logs/
+
+# env
+.env
+.env.*
+
+# editor / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# uploads (runtime data)
+uploads/
